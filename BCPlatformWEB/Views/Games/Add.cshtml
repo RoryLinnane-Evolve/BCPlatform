@@ -1,0 +1,46 @@
+﻿@model AddGameViewModel
+
+<h1>Add Game</h1>
+<form method="post" action="Add" class="mt-5" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="" class="form-label">Home Team</label>
+        <select asp-for="HomeTeam">
+            @foreach (var team in Model.Teams)
+            {
+                <option value="@team.Id">@team.Name</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Away Team</label>
+        <select asp-for="AwayTeam">
+            @foreach (var team in Model.Teams)
+            {
+                <option value="@team.Id">@team.Name</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Location</label>
+        <input type="text" class="form-control" asp-for="Location">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Additional Information</label>
+        <input type="" class="form-control" asp-for="Info">
+    </div>
+    
+    <div class="mb-3">
+        <label for="" class="form-label">Date and Time</label>
+        <input type="datetime" class="form-control" asp-for="_DateTime">
+    </div>    
+    <div class="mb-3">
+        <label for="" class="form-label custom-file-label">ScoreSheet</label>
+        <input type="file" class="form-control custom-file-input" asp-for="Scoresheet">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+@{
+}

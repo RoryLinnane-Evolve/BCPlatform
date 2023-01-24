@@ -1,0 +1,49 @@
+﻿@model UpdateGameViewModel
+@{
+}
+<h1>Edit Game</h1>
+<form method="post" action="View" class="mt-5">
+
+    <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Home Team</label>
+        <select asp-for="HomeTeam">
+            @foreach (var team in Model.Teams)
+            {
+                <option value="@team.Id">@team.Name</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Away Team</label>
+        <select asp-for="AwayTeam">
+            @foreach (var team in Model.Teams)
+            {
+                <option value="@team.Id">@team.Name</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Location</label>
+        <input type="text" class="form-control" asp-for="Location">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Date/Time</label>
+        <input type="datetime" class="form-control" asp-for="_DateTime">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Date/Time</label>
+        <input type="text" class="form-control" asp-for="Info">
+    </div>
+    <div class="mb-3">
+        <img src="~/Images/Scoresheets/@Model.ScoresheetName"/>
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary" >Submit</button>
+
+    <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Games">Delete</button>
+</form>

@@ -1,0 +1,16 @@
+﻿@model AddClubViewModel
+@{
+}
+
+<h1>Add Club</h1>
+<form method="post" action="Add" class="mt-5">
+    <div class="mb-3">
+        <label for="" class="form-label">Club Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Location</label>
+        <input type="text" class="form-control" asp-for="Location">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

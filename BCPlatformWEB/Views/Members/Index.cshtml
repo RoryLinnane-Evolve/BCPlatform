@@ -1,0 +1,65 @@
+﻿@model List<BCPlatformWEB.Models.Domain.Member>
+@{
+}
+
+<h1>Members</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Id</th>
+            <th>BI_PIN</th>
+            <th>ClubId</th>
+            <th>Name</th>
+            <th>DateOfBirth</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>PhoneNumber</th>
+            <th>MedicalConditions</th>
+            <th>EmergencyContactNumber</th>
+            <th>EmergencyContactRelationship</th>
+            <th>Allergies</th>
+            <th>MedicalNotes</th>
+            <th>CountryOfBirth</th>
+            <th>ParentName</th>
+            <th>ParentEmail</th>
+            <th>ParentPhoneNumber</th>
+            <th>RoleId</th>
+            <th>RegistrarEmail</th>
+            <th>DateRegistered</th>
+            <th>Payed</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr>
+                <td><a href="Members/View/@member.Id">View</a></td>
+                <td>@member.Id</td>
+                <td>@member.BI_PIN</td>
+                <td>@member.ClubId</td>
+                <td>@member.Name</td>
+                <td>@member.DateOfBirth</td>
+                <td>@member.Gender</td>
+                <td>@member.Address</td>
+                <td>@member.Email</td>
+                <td>@member.PhoneNumber</td>
+                <td>@member.MedicalConditions</td>
+                <td>@member.EmergencyContactNumber</td>
+                <td>@member.EmergencyContactRelationship</td>
+                <td>@member.Allergies</td>
+                <td>@member.MedicalNotes</td>
+                <td>@member.CountryOfBirth</td>
+                <td>@member.ParentName</td>
+                <td>@member.ParentEmail</td>
+                <td>@member.ParentPhoneNumber</td>
+                <td>@member.RoleId</td>
+                <td>@member.RegistrarEmail</td>
+                <td>@member.DateRegistered</td>
+                <td>@member.Payed</td>                
+            </tr>
+        }
+    </tbody>
+</table>

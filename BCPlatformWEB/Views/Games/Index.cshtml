@@ -1,0 +1,34 @@
+﻿@model List<BCPlatformWEB.Models.Domain.Game>
+
+<h1>Games</h1>
+@{
+}
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Location</th>
+            <th>Date/Time</th>
+            <th>Info</th>
+            <th>Scoresheet</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var game in Model)
+        {
+            <tr>
+                <td><a href="Games/View/@game.Id">View</a></td>
+                <td>@game.Id</td>
+                <td>@game.HomeTeam</td>
+                <td>@game.AwayTeam</td>
+                <td>@game.Location</td>
+                <td>@game._DateTime</td>
+                <td>@game.Info</td>
+                <td><img src="Images/Scoresheets/@game.ScoresheetName"/></td>
+            </tr>
+        }
+    </tbody>
+</table>

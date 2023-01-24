@@ -1,0 +1,26 @@
+﻿@model List<BCPlatformWEB.Models.Domain.Club>
+<h1>Clubs</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var club in Model)
+        {
+            <tr>
+                <td><a href="Clubs/View/@club.Id">View</a></td>
+                <td>@club.Id</td>
+                <td>@club.Name</td>
+                <td>@club.Location</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@{
+}
