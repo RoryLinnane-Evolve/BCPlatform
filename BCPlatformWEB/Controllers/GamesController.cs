@@ -39,7 +39,8 @@ namespace BCPlatformWEB.Controllers
             string uniqueFileName = Guid.NewGuid().ToString()+"."+addGameRequest.Scoresheet.FileName.Split('.')[1];
             string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-                addGameRequest.Scoresheet.CopyTo(new FileStream(filePath, FileMode.Create));
+            addGameRequest.Scoresheet.CopyTo(new FileStream(filePath, FileMode.Create));
+
             var game = new Game()
             {
                 Id = new Guid(),

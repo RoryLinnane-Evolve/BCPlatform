@@ -4,16 +4,19 @@ using BCPlatformWEB.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BCPlatformWEB.Migrations
+namespace BCPlatformWEB.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230125210303_PostsAdd")]
+    partial class PostsAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -151,10 +154,6 @@ namespace BCPlatformWEB.Migrations
 
             modelBuilder.Entity("BCPlatformWEB.Models.Domain.Post", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -169,9 +168,8 @@ namespace BCPlatformWEB.Migrations
                     b.Property<Guid?>("Game")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ImageNames")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -179,8 +177,6 @@ namespace BCPlatformWEB.Migrations
 
                     b.Property<DateTime>("UploadTime")
                         .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
 
                     b.ToTable("Posts");
                 });

@@ -1,8 +1,40 @@
-﻿@{
+﻿@using BCPlatformWEB.Models.Domain;
+@model List<Post>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            @foreach (var post in Model)
+            {
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img class="bd-placeholder-img card-img-top" src="Images/Posts/@post.ImageNames.Split(',')[0]" />
+
+                        <div class="card-body">
+                            <p class="card-text">@post.Description</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    @if (true)
+                                    {
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    }
+                                </div>
+                                <small class="text-muted">@((DateTime.Now- post.UploadTime).Minutes) mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+        </div>
+    </div>
 </div>
