@@ -22,10 +22,10 @@
                             <p class="card-text">@post.Description</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    @if (true)
+                                    <a href="Posts/View" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                                    @if (Context.User.Identity.IsAuthenticated)
                                     {
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                        <a href="Posts/Update/@post.Id" type="button" class="btn btn-sm btn-outline-secondary">Update</a>
                                     }
                                 </div>
                                 <small class="text-muted">@((DateTime.Now- post.UploadTime).Minutes) mins</small>

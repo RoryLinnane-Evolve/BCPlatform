@@ -2,7 +2,9 @@
 using BCPlatformWEB.Models;
 using BCPlatformWEB.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting.Internal;
+using System.IO;
 
 namespace BCPlatformWEB.Controllers
 {
@@ -42,7 +44,7 @@ namespace BCPlatformWEB.Controllers
                 string uniqueFileName = Guid.NewGuid().ToString() + "." + image.FileName.Split('.')[1];
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                 image.CopyTo(new FileStream(filePath, FileMode.Create));
-                imageNames += uniqueFileName;
+                imageNames += (uniqueFileName+",");
             }
 
             var post = new Post()
@@ -59,7 +61,53 @@ namespace BCPlatformWEB.Controllers
 
             await dBContext.Posts.AddAsync(post);
             await dBContext.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return Redirect("/");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult>Update(Guid id)
+        {
+            var post = await dBContext.Posts.FirstOrDefaultAsync(x=>x.Id == id);
+            if(post!=null)
+            {
+                var viewModel = new UpdatePostViewModel()
+                {
+                    Id = post.Id,
+                    Title = post.Title,
+                    Description = post.Description,
+                    Content = post.Content,
+                    Creator=post.Creator, 
+                    Game=post.Game,
+                    UploadTime=post.UploadTime,
+                    ImageNames=post.ImageNames,
+                    RecentGames=dBContext.Games.ToList()
+                };
+                return await Task.Run(() => View("Update", viewModel));
+            }
+            else
+            {
+                return Redirect("/");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult>Update(UpdatePostViewModel model)
+        {
+            var post = await dBContext.Posts.FindAsync(model.Id);
+
+            if(post!=null)
+            {
+                post.Title= model.Title;
+                post.Description= model.Description;
+                post.Content= model.Content;
+                post.Creator= new Guid(dBContext.Users.Where(x => x.UserName == HttpContext.User.Identity.Name).ToList()[0].Id);
+                post.Game=model.Game;
+                post.UploadTime=DateTime.Now;
+                post.ImageNames=model.ImageNames;
+                await dBContext.SaveChangesAsync();
+                return Redirect("/");
+            }
+            return Redirect("/");
         }
     }
 }
