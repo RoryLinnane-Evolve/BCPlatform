@@ -14,5 +14,6 @@ namespace BCPlatformWEB.Data
         public DbSet<Club> Clubs { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Statline> Stats { get; set; }
     }
 }

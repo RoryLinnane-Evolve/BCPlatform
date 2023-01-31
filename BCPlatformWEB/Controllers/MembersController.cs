@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Reflection;
+#pragma warning disable CS8601 // Possible null reference assignment.
+
 
 namespace BCPlatformWEB.Controllers
 {
@@ -33,6 +35,7 @@ namespace BCPlatformWEB.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddMemberViewModel addMemberRequest)
         {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             var member = new Member()
             {
                 Id = new Guid(),
@@ -58,6 +61,7 @@ namespace BCPlatformWEB.Controllers
                 DateRegistered=DateTime.Now,
                 Payed=false
             };
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
             await dBContext.Members.AddAsync(member);
             await dBContext.SaveChangesAsync();
@@ -156,3 +160,4 @@ namespace BCPlatformWEB.Controllers
         }
     }
 }
+#pragma warning restore CS8601 // Possible null reference assignment.

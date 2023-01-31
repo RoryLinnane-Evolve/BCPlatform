@@ -1,3 +1,39 @@
 ﻿@model UpdatePostViewModel
 @{
 }
+<form method="post" action="Update" class="mt-5">
+
+    <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" readonly class="form-control" asp-for="Id">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Title</label>
+        <input type="text" class="form-control" asp-for="Title">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Description</label>
+        <textarea class="form-control" rows="3" asp-for="Description"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Content</label>
+        <textarea class="form-control" rows="10" asp-for="Content"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Game</label>
+        <select asp-for="Game">
+            @foreach (var game in Model.RecentGames)
+            {
+                <option value="@game.Id">@game.HomeTeam vs @game.AwayTeam - @game.Info</option>
+            }
+        </select>
+    </div>
+    @foreach (var image in Model.ImageNames.Split(','))
+    {
+        <img src="Images/Posts/@image"/>
+    }
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Posts">Delete</button>
+</form>

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting.Internal;
 using System.IO;
+using System.Reflection.Metadata.Ecma335;
 
 namespace BCPlatformWEB.Controllers
 {
@@ -56,7 +57,7 @@ namespace BCPlatformWEB.Controllers
                 Creator = new Guid(dBContext.Users.Where(x => x.UserName == HttpContext.User.Identity.Name).ToList()[0].Id),
                 Game= addPostRequest.Game,
                 UploadTime=DateTime.Now,
-                ImageNames= imageNames,
+                ImageNames= imageNames
             };
 
             await dBContext.Posts.AddAsync(post);
@@ -103,11 +104,35 @@ namespace BCPlatformWEB.Controllers
                 post.Creator= new Guid(dBContext.Users.Where(x => x.UserName == HttpContext.User.Identity.Name).ToList()[0].Id);
                 post.Game=model.Game;
                 post.UploadTime=DateTime.Now;
-                post.ImageNames=model.ImageNames;
                 await dBContext.SaveChangesAsync();
                 return Redirect("/");
             }
             return Redirect("/");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(UpdateClubViewModel model)
+        {
+            var post = await dBContext.Posts.FindAsync(model.Id);
+            if (post != null)
+            {
+                dBContext.Posts.Remove(post);
+                await dBContext.SaveChangesAsync();
+                return Redirect("/");
+            }
+            else
+            {
+                return Redirect("/");
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> View(Guid id)
+        {
+            var model=await dBContext.Posts.FindAsync(id);
+            if(model!=null)
+                return View(model);
+            else
+                return Redirect("/");
         }
     }
 }

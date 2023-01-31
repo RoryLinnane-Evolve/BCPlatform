@@ -185,6 +185,38 @@ namespace BCPlatformWEB.Migrations
                     b.ToTable("Posts");
                 });
 
+            modelBuilder.Entity("BCPlatformWEB.Models.Domain.Statline", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("Ast")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Blk")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("GameId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("Pts")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Reb")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Stl")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Stats");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
