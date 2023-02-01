@@ -115,5 +115,15 @@ namespace BCPlatformWEB.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        #region App Methods
+
+        [HttpGet]
+        public async Task<List<Game>> AppGetGames()
+        {
+            return await dBContext.Games.ToListAsync();
+        }
+
+        #endregion
     }
 }

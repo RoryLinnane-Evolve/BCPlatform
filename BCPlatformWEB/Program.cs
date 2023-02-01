@@ -1,6 +1,7 @@
-using BCPlatformWEB.Data;
+﻿using BCPlatformWEB.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using BCPlatformWEB.Controllers;
 
 namespace BCPlatformWEB
 {
@@ -20,6 +21,10 @@ namespace BCPlatformWEB
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
+                        builder.Services.AddEndpointsApiExplorer();
+
+                        builder.Services.AddSwaggerGen();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -34,6 +39,12 @@ namespace BCPlatformWEB
                 app.UseHsts();
             }
 
+                        if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+};
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -45,6 +56,7 @@ namespace BCPlatformWEB
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
+
 
             app.Run();
         }
