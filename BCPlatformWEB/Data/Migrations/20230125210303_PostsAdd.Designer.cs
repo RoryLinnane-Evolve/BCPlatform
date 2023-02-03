@@ -25,7 +25,7 @@ namespace BCPlatformWEB.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BCPlatformWEB.Models.Domain.Club", b =>
+            modelBuilder.Entity("BCPlatformLib.Models.Club", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace BCPlatformWEB.Data.Migrations
                     b.ToTable("Clubs");
                 });
 
-            modelBuilder.Entity("BCPlatformWEB.Models.Domain.Game", b =>
+            modelBuilder.Entity("BCPlatformLib.Models.Game", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,7 +73,7 @@ namespace BCPlatformWEB.Data.Migrations
                     b.ToTable("Games");
                 });
 
-            modelBuilder.Entity("BCPlatformWEB.Models.Domain.Member", b =>
+            modelBuilder.Entity("BCPlatformLib.Models.Member", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -152,7 +152,7 @@ namespace BCPlatformWEB.Data.Migrations
                     b.ToTable("Members");
                 });
 
-            modelBuilder.Entity("BCPlatformWEB.Models.Domain.Post", b =>
+            modelBuilder.Entity("BCPlatformLib.Models.Post", b =>
                 {
                     b.Property<string>("Content")
                         .IsRequired()

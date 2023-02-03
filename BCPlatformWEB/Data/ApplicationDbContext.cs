@@ -1,4 +1,4 @@
-﻿using BCPlatformWEB.Models.Domain;
+﻿using BCPlatformLib.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

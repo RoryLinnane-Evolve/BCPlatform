@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StatsApp.Controls.GameCard">
+    <Frame BorderColor="Gray" CornerRadius="10" >
+        <HorizontalStackLayout>
+            <Label x:Name="lblHomeTeam" Text="{Binding Model.HomeTeam}"/>
+            <Label>vs</Label>
+            <Label x:Name="lblAwayTeam" Text="Default"/>
+            <Button x:Name="Edit" Clicked="Edit_Clicked" Text="Edit"/>
+        </HorizontalStackLayout>
+    </Frame>
+</ContentView>

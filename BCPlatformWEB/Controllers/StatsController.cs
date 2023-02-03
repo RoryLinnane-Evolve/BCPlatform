@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BCPlatformWEB.Data;
-using BCPlatformWEB.Models.Domain;
+using BCPlatformLib.Models;
 
 namespace BCPlatformWEB.Controllers
 {

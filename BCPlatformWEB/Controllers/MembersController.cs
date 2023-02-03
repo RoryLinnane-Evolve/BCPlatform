@@ -1,5 +1,5 @@
 ﻿using BCPlatformWEB.Data;
-using BCPlatformWEB.Models.Domain;
+using BCPlatformLib.Models;
 using BCPlatformWEB.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
