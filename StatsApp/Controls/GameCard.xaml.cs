@@ -1,4 +1,5 @@
 using BCPlatformLib.MobileViewModels;
+using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using StatsApp.Views;
 
 namespace StatsApp.Controls;
@@ -8,14 +9,14 @@ public partial class GameCard : ContentView
 	public Guid GameId;
 	public GameCard(GameViewModel game)
 	{
-        //lblHomeTeam.Text = game.HomeTeam;
-        //lblAwayTeam.Text = game.AwayTeam;
-        //GameId= game.Id;
         InitializeComponent();
-	}
+        lblHomeTeam.Text = game.HomeTeam;
+        lblAwayTeam.Text = game.AwayTeam;
+        GameId=game.Id;
+    }
 
     private void Edit_Clicked(object sender, EventArgs e)
     {
-		var s = new Stats(GameId);
+        Navigation.PushAsync(new Stats(GameId));
     }
 }

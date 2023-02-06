@@ -3,11 +3,5 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StatsApp.Views.Games"
              Title="Games">
-    <VerticalStackLayout x:Name="VSL">
-        <HorizontalStackLayout>
-            <Label>Game:</Label>
-            <Label>Loins vs Celtics</Label>
-        </HorizontalStackLayout>
-        
-    </VerticalStackLayout>
+    <VerticalStackLayout x:Name="VSL" />
 </ContentPage>

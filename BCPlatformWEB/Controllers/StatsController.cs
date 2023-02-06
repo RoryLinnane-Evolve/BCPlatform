@@ -29,8 +29,6 @@ namespace BCPlatformWEB.Controllers
             List<GameViewModel> games = new();
             if (_context.Clubs != null)
             {
-                
-
                 foreach (var game in await _context.Games.ToListAsync())
                 {
                     games.Add(new GameViewModel()
@@ -53,13 +51,29 @@ namespace BCPlatformWEB.Controllers
         }
         // GET: api/Stats/FromGame/1
         [HttpGet("FromGame/{GameId}")]
-        public async Task<ActionResult<IEnumerable<Statline>>> StatsFromGameId(Guid GameId)
+        public async Task<ActionResult<IEnumerable<StatlineViewModel>>> StatsFromGameId(Guid GameId)
         {
             if (_context.Stats == null)
             {
                 return NotFound();
             }
-            return await _context.Stats.Where(x=>x.GameId==GameId).ToListAsync();
+            List<StatlineViewModel> stats = new();
+            var l= await _context.Stats.Where(x=>x.GameId==GameId).ToListAsync();
+            foreach(var i in l) 
+            {
+                stats.Add(new StatlineViewModel()
+                {
+                    Id= i.Id,
+                    PlayerName=_context.Members.Find(i.PlayerId).Name,
+                    Number=i.Number,
+                    Pts=i.Pts,
+                    Reb=i.Reb,
+                    Ast=i.Ast,
+                    Blk=i.Blk,
+                    Stl=i.Stl,
+                });
+            }
+            return stats;
         }
 
         // PUT: api/Stats/UpdateRange

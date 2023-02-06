@@ -47,6 +47,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="..\.editorconfig" Link=".editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3-beta1" />
 	</ItemGroup>
 
@@ -62,6 +66,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Controls\GameCard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\StatlineRow.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Games.xaml">

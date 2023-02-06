@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StatsApp.Controls.StatlineRow">
+    <HorizontalStackLayout>
+        <Label x:Name="PlayerName"></Label>
+        <Label x:Name="Number"></Label>
+        
+        <Button Text="Pts+" x:Name="PtsPlus" Clicked="PtsPlus_Clicked"/>
+        <Label x:Name="Pts"></Label>
+        <Button Text="Pts-" x:Name="PtsMinus" Clicked="PtsMinus_Clicked"/>
+        
+        <Button Text="Reb+" x:Name="RebPlus" Clicked="RebPlus_Clicked"/>
+        <Label x:Name="Reb"></Label>
+        <Button Text="Reb-" x:Name="RebMinus" Clicked="RebMinus_Clicked"/>
+        
+        <Button Text="Ast+" x:Name="AstPlus" Clicked="AstPlus_Clicked"/>
+        <Label x:Name="Ast"></Label>
+        <Button Text="Ast-" x:Name="AstMinus" Clicked="AstMinus_Clicked"/>
+
+        <Button Text="Blk+" x:Name="BlkPlus" Clicked="BlkPlus_Clicked"/>
+        <Label x:Name="Blk"></Label>
+        <Button Text="Blk-" x:Name="BlkMinus" Clicked="BlkMinus_Clicked"/>
+        
+        <Button Text="Stl+" x:Name="StlPlus" Clicked="StlPlus_Clicked"/>
+        <Label x:Name="Stl"></Label>
+        <Button Text="Stl-" x:Name="StlMinus" Clicked="StlMinus_Clicked"/>
+        
+    </HorizontalStackLayout>
+</ContentView>
