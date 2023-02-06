@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BCPlatformWEB.Data;
 using BCPlatformLib.Models;
+using BCPlatformLib.MobileViewModels;
 
 namespace BCPlatformWEB.Controllers
 {
@@ -21,6 +22,35 @@ namespace BCPlatformWEB.Controllers
             _context = context;
         }
 
+        // GET: api/Stats/AppGetGames
+        [HttpGet("AppGetGames")]
+        public async Task<ActionResult<IEnumerable<GameViewModel>>> AppGetGames()
+        {
+            List<GameViewModel> games = new();
+            if (_context.Clubs != null)
+            {
+                
+
+                foreach (var game in await _context.Games.ToListAsync())
+                {
+                    games.Add(new GameViewModel()
+                    {
+                        HomeTeam = _context.Clubs.Find(game.HomeTeam).Name,
+                        AwayTeam = _context.Clubs.Find(game.AwayTeam).Name,
+                        _DateTime = game._DateTime,
+                        ScoresheetName = game.ScoresheetName,
+                        Id = game.Id,
+                        Info = game.Info,
+                        Location = game.Location
+                    });
+                }
+                return games;
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
         // GET: api/Stats/FromGame/1
         [HttpGet("FromGame/{GameId}")]
         public async Task<ActionResult<IEnumerable<Statline>>> StatsFromGameId(Guid GameId)

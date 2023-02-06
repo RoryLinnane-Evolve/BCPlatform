@@ -1,4 +1,5 @@
 using StatsApp.Controls;
+using System.Net;
 
 namespace StatsApp.Views;
 
@@ -8,21 +9,19 @@ public partial class Games : ContentPage
 	{
 		InitializeComponent();
 
-		List<string> list = new List<string>() { "Label1", "Label2", "Label3"};
-		foreach (var item in list)
+		try
 		{
-
-			VSL.Add(new GameCard(new BCPlatformLib.MobileViewModels.GameViewModel()
+			using(HttpClient client = new())
 			{
-				Id = new Guid(),
-				HomeTeam=item,
-				AwayTeam="Celtics",
-				Info="This is info",
-				ScoresheetName="score.jpeg",
-				Location="Ennistymon CC",
-				_DateTime= DateTime.Now
-			}));
-		}
-		
+				var result = client.Send(new HttpRequestMessage()
+				{
+					Method = HttpMethod.Get,
+					RequestUri=new Uri("")
+				});
+			}
+		}catch(Exception ex) 
+		{
+			Console.WriteLine(ex.Message);
+		}		
 	}
 }

@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCPlatformWEB", "BCPlatform
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsApp", "StatsApp\StatsApp.csproj", "{AF0AE5E5-0AC1-4056-A53B-5A396AC27404}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCPlatformLib", "BCPlatformLib\BCPlatformLib.csproj", "{86378265-30D7-4BB5-A6D0-F70D19BA133E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCPlatformLib", "BCPlatformLib\BCPlatformLib.csproj", "{86378265-30D7-4BB5-A6D0-F70D19BA133E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{08701E5D-FD69-4E61-A10B-C9FF76C21698}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
