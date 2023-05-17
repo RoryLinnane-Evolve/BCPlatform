@@ -82,6 +82,37 @@ namespace BCPlatformWEB.Controllers
                 return RedirectToAction("Index");
             }
         }
+        [HttpGet]
+        public async Task<IActionResult>Stats(Guid id)
+        {
+            var stats =  dBContext.Stats.Where(x=> x.GameId == id).ToList();
+            if(stats !=null)
+            {
+                var viewModel = new List<StatlineViewModel>();
+                foreach (var statline in stats)
+                {
+                    string g = $"{dBContext.Clubs.FirstOrDefault(x => x.Id == dBContext.Games.FirstOrDefault(x => x.Id == statline.GameId).AwayTeam).Name} @ {dBContext.Clubs.FirstOrDefault(x => x.Id == dBContext.Games.FirstOrDefault(x => x.Id == statline.GameId).HomeTeam).Name}";
+                    string s = dBContext.Members.FirstOrDefault(x => x.Id == statline.PlayerId).Name;
+                    viewModel.Add(new StatlineViewModel()
+                    {
+                        Id= statline.Id,
+                        Game=g,
+                        Name=s,
+                        Number= statline.Number,
+                        Pts= statline.Pts,
+                        Reb= statline.Reb,
+                        Ast= statline.Ast,
+                        Blk= statline.Blk,
+                        Stl= statline.Stl
+                    });
+                }
+                return await Task.Run(()=> View("Stats", viewModel));
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
         [HttpPost]
         public async Task<IActionResult> View(UpdateGameViewModel model)
         {

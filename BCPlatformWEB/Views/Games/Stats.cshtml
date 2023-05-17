@@ -1,0 +1,30 @@
+﻿@model List<StatlineViewModel>
+<h1>Stats for @Model[0].Game</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Number</th>            
+            <th>Name</th>            
+            <th>Pts</th>            
+            <th>Reb</th>            
+            <th>Ast</th>            
+            <th>Blk</th>            
+            <th>Stl</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var statLine in Model)
+        {
+            <tr>
+                <td>@statLine.Number</td>
+                <td>@statLine.Name</td>
+                <td>@statLine.Pts</td>
+                <td>@statLine.Reb</td>
+                <td>@statLine.Ast</td>
+                <td>@statLine.Blk</td>
+                <td>@statLine.Stl</td>
+            </tr>
+        }
+    </tbody>
+</table>

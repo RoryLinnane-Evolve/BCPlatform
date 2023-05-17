@@ -20,7 +20,7 @@ public partial class Stats : ContentPage
 		var results = client.Send(new HttpRequestMessage()
 		{
 			Method = HttpMethod.Get,
-			RequestUri=new Uri($"http://192.168.1.101:5086/api/Stats/FromGame/{GameId}")
+			RequestUri=new Uri($"http://localhost:5086/api/Stats/FromGame/{GameId}")
 		});
 
 		var statList = JsonConvert.DeserializeObject<List<StatlineViewModel>>(results.Content.ReadAsStringAsync().Result);

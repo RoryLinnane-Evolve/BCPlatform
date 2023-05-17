@@ -9,5 +9,9 @@
             Name = name;
             Location = location;
         }
+        public AddClubViewModel()
+        {
+            
+        }
     }
 }

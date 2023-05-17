@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BCPlatformLib.MobileViewModels
+﻿namespace BCPlatformWEB.Models
 {
     public class StatlineViewModel
     {
         public Guid Id { get; set; }
-        public string PlayerName { get; set; }
+        public string Game { get; set; }
+        public string Name { get; set; }
         public int Number { get; set; }
         public int? Pts { get; set; }
         public int? Reb { get; set; }
