@@ -1,33 +1,24 @@
-namespace StatsApp.Views;
-
-using StatsApp.Controls;
-using System.Net;
-using Newtonsoft.Json;
-using BCPlatformLib.MobileViewModels;
-
-public partial class Games : ContentPage
+﻿namespace StatsApp.Views
 {
-	public Games()
-	{
-		InitializeComponent();
+    public partial class Games : ContentPage
+    {
+        int count = 0;
 
-		try
-		{
-			using(HttpClient client = new())
-			{
-				var result = client.Send(new HttpRequestMessage()
-				{
-					Method = HttpMethod.Get,
-					RequestUri=new Uri("http://localhost:5086/Api/Stats/AppGetGames")
-				});
-				foreach (var game in JsonConvert.DeserializeObject<List<GameViewModel>>(result.Content.ReadAsStringAsync().Result))
-				{
-					VSL.Add(new GameCard(game));
-				}
-			}
-		}catch(Exception ex) 
-		{
-			Console.WriteLine(ex.Message);
-		}		
-	}
+        public Games()
+        {
+            InitializeComponent();
+        }
+
+        private void OnCounterClicked(object sender, EventArgs e)
+        {
+            count++;
+
+            if (count == 1)
+                CounterBtn.Text = $"Clicked {count} time";
+            else
+                CounterBtn.Text = $"Clicked {count} times";
+
+            SemanticScreenReader.Announce(CounterBtn.Text);
+        }
+    }
 }

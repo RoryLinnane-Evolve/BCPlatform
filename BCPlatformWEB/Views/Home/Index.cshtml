@@ -8,14 +8,14 @@
     <h1 class="display-4">Welcome</h1>
 </div>
 
-<div class="album py-5 bg-light">
+<div class="album py-5" style="background-color:#2d2c38">
     <div class="container">
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             @foreach (var post in Model)
             {
                 <div class="col">
-                    <div class="card shadow-sm">
+                    <div class="card shadow-sm" style="border:thick; border-color:aliceblue">
                         <img class="bd-placeholder-img card-img-top" src="Images/Posts/@post.ImageNames.Split(',')[0]" />
 
                         <div class="card-body">

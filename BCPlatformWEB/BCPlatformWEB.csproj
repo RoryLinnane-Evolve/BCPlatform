@@ -8,30 +8,46 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\Images\ClubLogos\**" />
+    <Content Remove="wwwroot\Images\ClubLogos\**" />
+    <EmbeddedResource Remove="wwwroot\Images\ClubLogos\**" />
+    <None Remove="wwwroot\Images\ClubLogos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Images\ClubLogos\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <None Include="wwwroot\assets\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\assets\fonts\UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa0ZL7SUc.woff2" />
+    <None Include="wwwroot\assets\fonts\UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1pL7SUc.woff2" />
+    <None Include="wwwroot\assets\fonts\UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" />
+    <None Include="wwwroot\assets\fonts\UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa25L7SUc.woff2" />
+    <None Include="wwwroot\assets\fonts\UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2JL7SUc.woff2" />
+    <None Include="wwwroot\assets\fonts\UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2pL7SUc.woff2" />
+    <None Include="wwwroot\assets\fonts\UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2ZL7SUc.woff2" />
+    <None Include="wwwroot\assets\js\bold-and-dark.js" />
     <None Include="wwwroot\Images\Scoresheets\score.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BCPlatformLib\BCPlatformLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\ML\" />
   </ItemGroup>
 
 </Project>
