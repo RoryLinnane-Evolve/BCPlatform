@@ -5,6 +5,16 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-BCPlatformWEB-601368ff-df56-444a-a903-2a3425779bd4</UserSecretsId>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <SignAssembly>False</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>False</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,10 +54,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BCPlatformLib\BCPlatformLib.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\ML\" />
   </ItemGroup>
 
 </Project>

@@ -30,7 +30,7 @@ namespace BCPlatformWEB.Controllers
         {
             return View(new AddPostViewModel()
             {
-                RecentGames = dBContext.Games.ToList()
+                RecentGames = await dBContext.Games.ToListAsync()
             });
         }
 

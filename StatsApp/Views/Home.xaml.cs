@@ -20,7 +20,7 @@ public partial class Home : ContentPage
         using(HttpClient client = new HttpClient())
         {
             HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Get, CONSTANTS.BaseURL+"/api/Posts");
-            var response = client.Send(message);
+            var response = client.SendAsync(message).Result;
             s = response.Content.ReadAsStringAsync().Result;
             Posts = JsonConvert.DeserializeObject<List<Post>>(s);
         }
