@@ -4,7 +4,13 @@
 
 <h1>Add Member</h1>
 <form method="post" action="Add" class="mt-5">
-    
+    <div class="mb-3">
+        <label class="form-label">Player Type</label>
+        <select class="form-control">
+            <option>Adult</option>
+            <option>Child</option>
+        </select>
+    </div>
     <div class="mb-3">
         <label for="" class="form-label">BI Pin</label>
         <input type="text" class="form-control" asp-for="BI_PIN">
@@ -67,7 +73,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Parent phone number</label>
-        <input type="email" class="form-control" asp-for="ParentPhoneNumber">
+        <input type="tel" class="form-control" asp-for="ParentPhoneNumber">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
