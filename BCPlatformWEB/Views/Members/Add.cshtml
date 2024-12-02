@@ -6,9 +6,9 @@
 <form method="post" action="Add" class="mt-5">
     <div class="mb-3">
         <label class="form-label">Player Type</label>
-        <select class="form-control">
-            <option>Adult</option>
-            <option>Child</option>
+        <select class="form-control" id="ddlPlayerType" onchange="playerTypeSelectClicked()">
+            <option value="adult">Adult</option>
+            <option value="child">Child</option>
         </select>
     </div>
     <div class="mb-3">
@@ -31,26 +31,28 @@
         <label for="" class="form-label">Address</label>
         <input type="text" class="form-control" asp-for="Address">
     </div>    
-    <div class="mb-3">
-        <label for="" class="form-label">Email address</label>
-        <input type="email" class="form-control" asp-for="Email">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Phone Number</label>
-        <input type="tel" class="form-control" asp-for="PhoneNumber">
+    <div id="adultFields">
+        <div class="mb-3">
+            <label for="" class="form-label">Email address</label>
+            <input type="email" class="form-control" asp-for="Email">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" asp-for="PhoneNumber">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Emergency Contact Number</label>
+            <input type="tel" class="form-control" asp-for="EmergencyContactNumber">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Emergency Contact Relationship</label>
+            <input type="text" class="form-control" asp-for="EmergencyContactRelationship">
+        </div>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Medical Conditions</label>
         <input type="text" class="form-control" asp-for="MedicalConditions">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Emergency Contact Number</label>
-        <input type="tel" class="form-control" asp-for="EmergencyContactNumber">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Emergency Contact Relationship</label>
-        <input type="text" class="form-control" asp-for="EmergencyContactRelationship">
-    </div>
+    </div>    
     <div class="mb-3">
         <label for="" class="form-label">Allergies</label>
         <input type="text" class="form-control" asp-for="Allergies">
@@ -59,22 +61,35 @@
         <label for="" class="form-label">Medical Notes</label>
         <input type="text" class="form-control" asp-for="MedicalNotes">
     </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Country of birth</label>
-        <input type="text" class="form-control" asp-for="CountryOfBirth">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Parent name</label>
-        <input type="text" class="form-control" asp-for="ParentName">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Parent email</label>
-        <input type="email" class="form-control" asp-for="ParentEmail">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Parent phone number</label>
-        <input type="tel" class="form-control" asp-for="ParentPhoneNumber">
+    <div id="childFields">
+        <div class="mb-3">
+            <label for="" class="form-label">Country of birth</label>
+            <input type="text" class="form-control" asp-for="CountryOfBirth">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Parent name</label>
+            <input type="text" class="form-control" asp-for="ParentName">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Parent email</label>
+            <input type="email" class="form-control" asp-for="ParentEmail">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Parent phone number</label>
+            <input type="tel" class="form-control" asp-for="ParentPhoneNumber">
+        </div>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<script>
+    function playerTypeSelectClicked(){
+        if (document.getElementById("ddlPlayerType").selectedIndex == 0) {
+            document.getElementById("adultFields").style.visibility = 'visible';
+            document.getElementById("childFields").style.visibility = 'hidden';
+        } else {
+            document.getElementById("childFields").style.visibility = 'visible';
+            document.getElementById("adultFields").style.visibility = 'hidden';
+        }
+    }
+</script>

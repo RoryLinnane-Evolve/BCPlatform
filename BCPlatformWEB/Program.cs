@@ -1,4 +1,4 @@
-﻿using BCPlatformWEB.Data;
+using BCPlatformWEB.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using BCPlatformWEB.Controllers;

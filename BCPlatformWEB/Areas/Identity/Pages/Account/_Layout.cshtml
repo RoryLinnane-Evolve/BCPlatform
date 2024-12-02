@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>@ViewData["Title"] - BCPlatformWEB</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BCPlatformWEB.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/assets/css/Inter.css" asp-append-version="true">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        /* Ensure the html and body take up the full height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Flex container to hold header, content, and footer */
+        .flex-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Push the footer to the bottom */
+        main {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #343a40; /* Dark background */
+            color: #fff; /* White text */
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-wrapper">        
+        <main>
+            <div class="container">
+                @RenderBody()
+            </div>
+        </main>        
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
