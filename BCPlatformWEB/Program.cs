@@ -21,9 +21,9 @@ namespace BCPlatformWEB
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
-                        builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddEndpointsApiExplorer();
 
-                        builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen();
             
 
             var app = builder.Build();
@@ -40,11 +40,11 @@ namespace BCPlatformWEB
                 app.UseHsts();
             }
 
-                        if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-};
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            };
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
