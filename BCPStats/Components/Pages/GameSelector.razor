@@ -1,0 +1,20 @@
+﻿@using BCPlatformLib.Models
+@page "/GameSelector"
+
+<h3>Please select a game.</h3>
+<select>
+    <option value="value">text</option>
+</select>
+
+@code {
+    private List<Game> games;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        using(HttpClient client = new HttpClient())
+        {
+            HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Get,"http://localhost:5123/api/Games/");
+        }
+    }
+
+}

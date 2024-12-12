@@ -33,13 +33,24 @@ namespace BCPlatformWEB.api
         }
 
         // GET: api/Games/5
+        //[HttpGet("ByUID/{id}")]
+        //public async Task<ActionResult<IEnumerable<Game>>> GetGameByUID(string id)
+        //{
+        //    if (_context.Games == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return await _context.Games.SelectMany(x=>x.);
+        //}
+
+        // GET: api/Games/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Game>> GetGame(Guid id)
         {
-          if (_context.Games == null)
-          {
-              return NotFound();
-          }
+            if (_context.Games == null)
+            {
+                return NotFound();
+            }
             var game = await _context.Games.FindAsync(id);
 
             if (game == null)
